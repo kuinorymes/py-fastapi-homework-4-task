@@ -121,7 +121,7 @@ async def register_user(
         activation_token = ActivationTokenModel(user_id=new_user.id)
         db.add(activation_token)
 
-        activation_link = "http://127.0.0.1/accounts/activate/"
+        activation_link = f"http://127.0.0.1/accounts/activate/{activation_token}"
 
         background_tasks.add_task(
             email_sender.send_activation_email,
